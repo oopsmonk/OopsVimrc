@@ -2,7 +2,7 @@
 
 VIMHOME=~/.vim
 VIMRC=~/.vimrc
-MYVIM=~/OopsVim
+MYVIM=~/OopsVimrc
 
 [ -e "$VIMHOME/vimrc" ] && echo "VIMHOME/vimrc exists." && exit 1
 [ -e "$VIMHOME" ] && echo "$VIMHOME exists." && exit 1
