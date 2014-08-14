@@ -1,6 +1,9 @@
 " Vim configure file
 " Author: OopsMonk <oopsmonk@gmail.com>
 
+"--------------------------------------------------------------------------- 
+" Configure Neobundle
+"--------------------------------------------------------------------------- 
 if has('vim_starting')
     set nocompatible               " Be iMproved
 
@@ -28,6 +31,12 @@ NeoBundle 'mileszs/ack.vim'
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'majutsushi/tagbar'
 NeoBundle 'Lokaltog/vim-easymotion'
+NeoBundle 'scrooloose/syntastic'
+NeoBundle 'ervandew/supertab'
+NeoBundle 'scrooloose/nerdcommenter'
+NeoBundle 'tpope/vim-surround'
+NeoBundle 'Townk/vim-autoclose'
+NeoBundle 'tpope/vim-fugitive'
 
 call neobundle#end()
 
@@ -39,7 +48,9 @@ filetype plugin indent on
 NeoBundleCheck
 
 
+"--------------------------------------------------------------------------- 
 " General Settings
+"--------------------------------------------------------------------------- 
 
 set nocompatible	" not compatible with the old-fashion vi mode
 set bs=2		" allow backspacing over everything in insert mode
@@ -62,17 +73,6 @@ autocmd! bufwritepost .vimrc source ~/.vimrc
 syntax on		" syntax highlight
 set hlsearch		" search highlighting
 
-"if has("gui_running")	" GUI color and font settings
-"  set guifont=Osaka-Mono:h20
-"  set background=dark 
-"  set t_Co=256          " 256 color mode
-"  set cursorline        " highlight current line
-"  colors moria
-"  highlight CursorLine          guibg=#003853 ctermbg=24  gui=none cterm=none
-"else
-"" terminal color settings
-"  "colors vgod
-"endif
 
 set clipboard=unnamed	" yank to the system register (*) by default
 set showmatch		" Cursor shows matching ) and }
@@ -124,6 +124,9 @@ set viminfo='10,\"100,:20,%,n~/.viminfo
 au BufReadPost * if line("'\"") > 0|if line("'\"") <= line("$")|exe("norm '\"")|else|exe "norm $"|endif|endif
 
 
+"--------------------------------------------------------------------------- 
+" Markdown Configuration 
+"--------------------------------------------------------------------------- 
 " Markdown extention
 autocmd BufRead,BufNewFile *.md set filetype=markdown
 "Auto Pandoc switch on/off
@@ -163,6 +166,7 @@ endfunction
 "Audo gen html for markdown
 let b:auto_doc="ture"
 autocmd BufWritePost *.markdown,*md call AutoPandoc()
+
 "--------------------------------------------------------------------------- 
 " ENCODING SETTINGS
 "--------------------------------------------------------------------------- 
@@ -175,3 +179,53 @@ set fileencodings=ucs-bom,utf-8,big5,gb2312,latin1
 " Key Mapping 
 "--------------------------------------------------------------------------- 
 map <Space> <PageDown>
+map <F3> :TagbarToggle<cr>
+map <F4> :NERDTreeToggle<cr>
+
+"--------------------------------------------------------------------------- 
+" EasyMotion Plugin
+"--------------------------------------------------------------------------- 
+let g:EasyMotion_leader_key = ','
+let g:EasyMotion_do_shade = 0
+map  / <Plug>(easymotion-sn)
+omap / <Plug>(easymotion-tn)
+
+" These `n` & `N` mappings are options. You do not have to map `n` & `N` to EasyMotion.
+" Without these mappings, `n` & `N` works fine. (These mappings just provide
+" different highlight method and have some other features )
+map  n <Plug>(easymotion-next)
+map  N <Plug>(easymotion-prev)
+
+"--------------------------------------------------------------------------- 
+" Syntastic (syntax checker)
+"--------------------------------------------------------------------------- 
+let g:syntastic_python_checkers=['pyflakes']
+
+"--------------------------------------------------------------------------- 
+" neocomplete 
+"--------------------------------------------------------------------------- 
+" Use neocomplete.
+let g:neocomplete_enable_at_startup = 1
+" Use smartcase.
+let g:neocomplete_enable_smart_case = 1
+" Set minimum syntax keyword length.
+let g:neocomplete_min_syntax_length = 3
+let g:neocomplete_lock_buffer_name_pattern = '\*ku\*'
+
+"--------------------------------------------------------------------------- 
+" neocomplcache 
+"--------------------------------------------------------------------------- 
+" Use neocomplcache.
+let g:neocomplcache_enable_at_startup = 1
+" Use smartcase.
+let g:neocomplcache_enable_smart_case = 1
+" Set minimum syntax keyword length.
+let g:neocomplcache_min_syntax_length = 3
+let g:neocomplcache_lock_buffer_name_pattern = '\*ku\*'
+" Enable omni completion.
+autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+
