@@ -186,10 +186,13 @@ set fileencodings=ucs-bom,utf-8,big5,gb2312,latin1
 " Key Mapping 
 "--------------------------------------------------------------------------- 
 map <Space> <PageDown>
-map <F3> :TagbarToggle<cr>
-map <F4> :NERDTreeToggle<cr>
+map <leader>1 :Unite buffer<CR>
+map <leader>2 :Unite file<CR>
+map <F2> :w<CR> :bnext<CR>
+map <F3> :TagbarToggle<CR>
+map <F4> :NERDTreeToggle<CR>
 if s:dis_ID == 'ubuntu'
-    nnoremap <F5> :exe ':silent !firefox %'<CR>
+    noremap <F9> :exe ':silent !firefox %'<CR>
 endif
 "--------------------------------------------------------------------------- 
 " EasyMotion Plugin
