@@ -1,6 +1,10 @@
 " Vim configure file
 " Author: OopsMonk <oopsmonk@gmail.com>
 
+if has("unix")
+    let s:dis_ID = system("awk -F= '$1==\"ID\"{printf $2}' /etc/os-release")
+endif
+
 "--------------------------------------------------------------------------- 
 " Configure Neobundle
 "--------------------------------------------------------------------------- 
@@ -21,22 +25,27 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 " My Bundles here:
 " Refer to |:NeoBundle-examples|.
 " Note: You don't set neobundle setting in .gvimrc!
-NeoBundle 'Shougo/unite.vim'
-if has('lua') && (v:version > 703 || (v:version == 703 && has('patch885')))
-    NeoBundle 'Shougo/neocomplete.vim'
-else
-    NeoBundle 'Shougo/neocomplcache'
+
+if s:dis_ID == 'ubuntu'
+    if has('lua') && (v:version > 703 || (v:version == 703 && has('patch885')))
+        NeoBundle 'Shougo/neocomplete.vim'
+    else
+        NeoBundle 'Shougo/neocomplcache'
+    endif
+    NeoBundle 'scrooloose/syntastic'
+    NeoBundle 'tpope/vim-fugitive'
 endif
+
+NeoBundle 'Shougo/unite.vim'
 NeoBundle 'mileszs/ack.vim'
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'majutsushi/tagbar'
 NeoBundle 'Lokaltog/vim-easymotion'
-NeoBundle 'scrooloose/syntastic'
 NeoBundle 'ervandew/supertab'
 NeoBundle 'scrooloose/nerdcommenter'
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'Townk/vim-autoclose'
-NeoBundle 'tpope/vim-fugitive'
+NeoBundle 'kshenoy/vim-signature'
 
 call neobundle#end()
 
@@ -102,7 +111,7 @@ set tm=500
    set softtabstop=4 
    set shiftwidth=4 
 
-   au FileType Makefile set noexpandtab
+   autocmd FileType Makefile set noexpandtab
 "}      							
 
 
@@ -121,8 +130,7 @@ highlight User6 ctermfg=white
 
 "Restore cursor to file position in previous editing session
 set viminfo='10,\"100,:20,%,n~/.viminfo
-au BufReadPost * if line("'\"") > 0|if line("'\"") <= line("$")|exe("norm '\"")|else|exe "norm $"|endif|endif
-
+autocmd BufReadPost * if line("'\"") > 0|if line("'\"") <= line("$")|exe("norm '\"")|else|exe "norm $"|endif|endif
 
 "--------------------------------------------------------------------------- 
 " Markdown Configuration 
@@ -166,7 +174,6 @@ endfunction
 "Audo gen html for markdown
 let b:auto_doc="ture"
 autocmd BufWritePost *.markdown,*md call AutoPandoc()
-
 "--------------------------------------------------------------------------- 
 " ENCODING SETTINGS
 "--------------------------------------------------------------------------- 
@@ -181,7 +188,9 @@ set fileencodings=ucs-bom,utf-8,big5,gb2312,latin1
 map <Space> <PageDown>
 map <F3> :TagbarToggle<cr>
 map <F4> :NERDTreeToggle<cr>
-
+if s:dis_ID == 'ubuntu'
+    nnoremap <F5> :exe ':silent !firefox %'<CR>
+endif
 "--------------------------------------------------------------------------- 
 " EasyMotion Plugin
 "--------------------------------------------------------------------------- 
@@ -229,3 +238,8 @@ autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 
+"--------------------------------------------------------------------------- 
+" vim-signature 
+"--------------------------------------------------------------------------- 
+"Clear marks when quit 
+autocmd BufUnload * call signature#PurgeMarks() 
