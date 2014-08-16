@@ -46,6 +46,7 @@ NeoBundle 'scrooloose/nerdcommenter'
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'Townk/vim-autoclose'
 NeoBundle 'kshenoy/vim-signature'
+NeoBundle 'zeis/vim-kolor'
 
 call neobundle#end()
 
@@ -74,14 +75,8 @@ filetype on           " Enable filetype detection
 filetype indent on    " Enable filetype-specific indenting
 filetype plugin on    " Enable filetype-specific plugins
 
-
-" auto reload vimrc when editing it
-autocmd! bufwritepost .vimrc source ~/.vimrc
-
-
 syntax on		" syntax highlight
 set hlsearch		" search highlighting
-
 
 set clipboard=unnamed	" yank to the system register (*) by default
 set showmatch		" Cursor shows matching ) and }
@@ -114,23 +109,16 @@ set tm=500
    autocmd FileType Makefile set noexpandtab
 "}      							
 
-
-set laststatus=2
-set statusline=%4*%<\ %1*[%F]
-set statusline+=%4*\ %5*[%{&encoding}, " encoding
-set statusline+=%{&fileformat}]%m " file format
-set statusline+=%4*%=\ %6*%y%4*\ %3*%l%4*,\ %3*%c%4*\ \<\ %2*%P%4*\ \>
-highlight User1 ctermfg=red
-highlight User2 term=underline cterm=underline ctermfg=green
-highlight User3 term=underline cterm=underline ctermfg=yellow
-highlight User4 term=underline cterm=underline ctermfg=white
-highlight User5 ctermfg=cyan
-highlight User6 ctermfg=white
-
+"Auto reload vimrc
+autocmd bufwritepost .vimrc,vimrc source ~/.vimrc
 
 "Restore cursor to file position in previous editing session
-set viminfo='10,\"100,:20,%,n~/.viminfo
-autocmd BufReadPost * if line("'\"") > 0|if line("'\"") <= line("$")|exe("norm '\"")|else|exe "norm $"|endif|endif
+if has("autocmd")
+    autocmd BufReadPost *
+    \ if line("'\"") > 0 && line ("'\"") <= line("$") |
+    \   exe "normal g'\"" |
+    \ endif
+endif
 
 "--------------------------------------------------------------------------- 
 " Markdown Configuration 
@@ -174,6 +162,29 @@ endfunction
 "Audo gen html for markdown
 let b:auto_doc="ture"
 autocmd BufWritePost *.markdown,*md call AutoPandoc()
+
+"--------------------------------------------------------------------------- 
+" Color scheme  
+"--------------------------------------------------------------------------- 
+set t_Co=256
+try
+    colorscheme kolor
+catch /^Vim\%((\a\+)\)\=:E185/
+    "Notthing
+endtry
+
+set laststatus=2
+set statusline=%4*%<\ %1*[%F]
+set statusline+=%4*\ %5*[%{&encoding}, " encoding
+set statusline+=%{&fileformat}]%m " file format
+set statusline+=%4*%=\ %6*%y%4*\ %3*%l%4*,\ %3*%c%4*\ \<\ %2*%P%4*\ \>
+highlight User1 ctermfg=red
+highlight User2 term=underline cterm=underline ctermfg=green
+highlight User3 term=underline cterm=underline ctermfg=yellow
+highlight User4 term=underline cterm=underline ctermfg=white
+highlight User5 ctermfg=cyan
+highlight User6 ctermfg=white
+
 "--------------------------------------------------------------------------- 
 " ENCODING SETTINGS
 "--------------------------------------------------------------------------- 
@@ -194,6 +205,8 @@ map <F4> :NERDTreeToggle<CR>
 if s:dis_ID == 'ubuntu'
     noremap <F9> :exe ':silent !firefox %'<CR>
 endif
+map <F12> :bd!<CR>
+
 "--------------------------------------------------------------------------- 
 " EasyMotion Plugin
 "--------------------------------------------------------------------------- 

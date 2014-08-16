@@ -12,8 +12,6 @@ MYVIM=~/OopsVimrc
 ln -s "$MYVIM/vimrc" "$VIMRC"
 ln -s "$MYVIM" "$VIMHOME"
 
-#cd "$VIMHONE"
 curl https://raw.githubusercontent.com/Shougo/neobundle.vim/master/bin/install.sh | sh
 
 vim +NeoBundleInstall +qall
-echo "vimrc is installed!"
