@@ -20,14 +20,21 @@ Install necessary packages
 `curl https://raw.githubusercontent.com/oopsmonk/OopsVimrc/master/auto-install.sh | sh`
 
 
-###Hotkeys  
+###Key Mappings
+*`<leader><cr>`* Clear search highlighting  
+*`<leader>ss`*  Spell check   
+*`<F2>`*        tabnext  
+*`<leader>tn`*  tabnew  
+*`<leader>to`*  tabonly   
+*`<leader>tc`*  tabclose  
+*`<leader>tm`*  tabmove  
+*`<leader>te`*  New tab with the current buffer's path  
+*`<leader>cd`*  CD to current buffer's path  
 *`<leader>1`*   Unite buffer  
 *`<leader>2`*   Unite file  
-*`<F2>`*        Save and go to next buffer  
 *`<F3>`*        TagbarToggle  
 *`<F4>`*        NERDTreeToggle  
 *`<F9>`*        Open file in Firefox (Preview Markdown or HTML files)  
-*`<F12>`*       Close current buffer without save   
 
 ###Plugins
 

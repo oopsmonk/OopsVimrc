@@ -196,17 +196,36 @@ set fileencodings=ucs-bom,utf-8,big5,gb2312,latin1
 "--------------------------------------------------------------------------- 
 " Key Mapping 
 "--------------------------------------------------------------------------- 
+"Moving around long lines. 
+map j gj
+map k gk
 map <Space> <PageDown>
-map <leader>1 :Unite buffer<CR>
-map <leader>2 :Unite file<CR>
-map <F2> :w<CR> :bnext<CR>
-map <F3> :TagbarToggle<CR>
-map <F4> :NERDTreeToggle<CR>
-if s:dis_ID == 'ubuntu'
-    noremap <F9> :exe ':silent !firefox %'<CR>
-endif
-map <F12> :bd!<CR>
 
+"Disable highlight when <leader><cr> is pressed
+map <silent> <leader><cr> :noh<cr>
+
+" Useful mappings for managing tabs
+map <F2> :tabnext<cr>
+map <leader>tn :tabnew<cr>
+map <leader>to :tabonly<cr>
+map <leader>tc :tabclose<cr>
+map <leader>tm :tabmove
+" Opens a new tab with the current buffer's path
+" Super useful when editing files in the same directory
+map <leader>te :tabedit <c-r>=expand("%:p:h")<cr>/
+" Switch CWD to the directory of the open buffer
+map <leader>cd :cd %:p:h<cr>:pwd<cr>
+
+map <leader>1 :Unite buffer<cr>
+map <leader>2 :Unite file<cr>
+map <F3> :TagbarToggle<cr>
+map <F4> :NERDTreeToggle<cr>
+if s:dis_ID == 'ubuntu'
+    noremap <F9> :exe ':silent !firefox %'<cr>
+endif
+
+" Spell check
+map <leader>ss :setlocal spell!<cr>
 "--------------------------------------------------------------------------- 
 " EasyMotion Plugin
 "--------------------------------------------------------------------------- 
