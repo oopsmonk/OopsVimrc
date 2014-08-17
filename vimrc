@@ -68,7 +68,6 @@ set history=150		" keep 50 lines of command line history
 set ruler		" show the cursor position all the time
 set autoread		" auto read when file is changed from outside
 
-
 filetype off          " necessary to make ftdetect work on Linux
 syntax on
 filetype on           " Enable filetype detection
@@ -205,7 +204,6 @@ map <Space> <PageDown>
 map <silent> <leader><cr> :noh<cr>
 
 " Useful mappings for managing tabs
-map <F2> :tabnext<cr>
 map <leader>tn :tabnew<cr>
 map <leader>to :tabonly<cr>
 map <leader>tc :tabclose<cr>

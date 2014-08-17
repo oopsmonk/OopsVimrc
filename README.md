@@ -20,15 +20,40 @@ Install necessary packages
 `curl https://raw.githubusercontent.com/oopsmonk/OopsVimrc/master/auto-install.sh | sh`
 
 
-###Key Mappings
-*`<leader><cr>`* Clear search highlighting  
-*`<leader>ss`*  Spell check   
-*`<F2>`*        tabnext  
+###Key Mappings  
+* Tab   
 *`<leader>tn`*  tabnew  
 *`<leader>to`*  tabonly   
 *`<leader>tc`*  tabclose  
 *`<leader>tm`*  tabmove  
 *`<leader>te`*  New tab with the current buffer's path  
+*`Ngt`*        Go to Tab [N]  
+*`gT`*         Go to previous Tab   
+
+* Marks   
+*``s`*        Go to Marker [s]  
+*`ms`*        Place marker [s]  
+*`m,`*        Place next available mark  
+*]`*          Jump to next mark   
+*[`*          Jump to previous mark  
+*`m<space>`*  Delete all marks from the current buffer  
+
+* Easymotion   
+*`,w`*  Beginning of word forward  
+*`,b`*  Beginning of word backward   
+*`,j`*  Line downward  
+*`,k`*  Line upward  
+
+* Comment  
+*`<leader>cA`*  Adds comment delimiters to the end of line and goes into insert mode between them.  
+*`<leader>cc`*  Comment out the current line or text selected in visual mode.  
+*`<leader>cu`*  Uncomments the selected line(s).  
+*`<leader>c$`*  Comments the current line from the cursor to the end of line.  
+
+
+* Others   
+*`<leader><cr>`* Clear search highlighting  
+*`<leader>ss`*  Spell check   
 *`<leader>cd`*  CD to current buffer's path  
 *`<leader>1`*   Unite buffer  
 *`<leader>2`*   Unite file  
