@@ -39,6 +39,9 @@ Install necessary packages
 *`m<space>`*  Delete all marks from the current buffer  
 
 * Easymotion   
+*`?`*  Easymotion search  
+*`e`*  Easymotion next target    
+*`E`*  Easymotion previous target    
 *`,w`*  Beginning of word forward  
 *`,b`*  Beginning of word backward   
 *`,j`*  Line downward  

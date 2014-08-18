@@ -198,7 +198,6 @@ set fileencodings=ucs-bom,utf-8,big5,gb2312,latin1
 "Moving around long lines. 
 map j gj
 map k gk
-map <Space> <PageDown>
 
 "Disable highlight when <leader><cr> is pressed
 map <silent> <leader><cr> :noh<cr>
@@ -229,14 +228,14 @@ map <leader>ss :setlocal spell!<cr>
 "--------------------------------------------------------------------------- 
 let g:EasyMotion_leader_key = ','
 let g:EasyMotion_do_shade = 0
-map  / <Plug>(easymotion-sn)
-omap / <Plug>(easymotion-tn)
+map  ? <Plug>(easymotion-sn)
+omap ? <Plug>(easymotion-tn)
 
 " These `n` & `N` mappings are options. You do not have to map `n` & `N` to EasyMotion.
 " Without these mappings, `n` & `N` works fine. (These mappings just provide
 " different highlight method and have some other features )
-map  n <Plug>(easymotion-next)
-map  N <Plug>(easymotion-prev)
+map  e <Plug>(easymotion-next)
+map  E <Plug>(easymotion-prev)
 
 "--------------------------------------------------------------------------- 
 " Syntastic (syntax checker)
