@@ -81,6 +81,7 @@ Install necessary packages
 * [tpope/vim-surround](https://github.com/tpope/vim-surround)
 * [Townk/vim-autoclose](https://github.com/Townk/vim-autoclose)
 * [kshenoy/vim-signature](https://github.com/kshenoy/vim-signature)
+* [bling/vim-airline](https://github.com/bling/vim-airline)  
 
 ###Color Schemes  
 

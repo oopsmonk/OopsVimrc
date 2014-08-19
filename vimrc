@@ -47,6 +47,7 @@ NeoBundle 'tpope/vim-surround'
 NeoBundle 'Townk/vim-autoclose'
 NeoBundle 'kshenoy/vim-signature'
 NeoBundle 'zeis/vim-kolor'
+NeoBundle 'bling/vim-airline'
 
 call neobundle#end()
 
@@ -172,17 +173,17 @@ catch /^Vim\%((\a\+)\)\=:E185/
     "Notthing
 endtry
 
-set laststatus=2
-set statusline=%4*%<\ %1*[%F]
-set statusline+=%4*\ %5*[%{&encoding}, " encoding
-set statusline+=%{&fileformat}]%m " file format
-set statusline+=%4*%=\ %6*%y%4*\ %3*%l%4*,\ %3*%c%4*\ \<\ %2*%P%4*\ \>
-highlight User1 ctermfg=red
-highlight User2 term=underline cterm=underline ctermfg=green
-highlight User3 term=underline cterm=underline ctermfg=yellow
-highlight User4 term=underline cterm=underline ctermfg=white
-highlight User5 ctermfg=cyan
-highlight User6 ctermfg=white
+"set laststatus=2
+"set statusline=%4*%<\ %1*[%F]
+"set statusline+=%4*\ %5*[%{&encoding}, " encoding
+"set statusline+=%{&fileformat}]%m " file format
+"set statusline+=%4*%=\ %6*%y%4*\ %3*%l%4*,\ %3*%c%4*\ \<\ %2*%P%4*\ \>
+"highlight User1 ctermfg=red
+"highlight User2 term=underline cterm=underline ctermfg=green
+"highlight User3 term=underline cterm=underline ctermfg=yellow
+"highlight User4 term=underline cterm=underline ctermfg=white
+"highlight User5 ctermfg=cyan
+"highlight User6 ctermfg=white
 
 "--------------------------------------------------------------------------- 
 " ENCODING SETTINGS
@@ -285,6 +286,28 @@ autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 autocmd BufUnload * call signature#PurgeMarks() 
 
 "--------------------------------------------------------------------------- 
-" NerdTree 
+" Nerdtree 
 "--------------------------------------------------------------------------- 
 let NERDTreeIgnore = ['\.pyc$','\.o$','\.so$','\.a$']
+
+"--------------------------------------------------------------------------- 
+" Airline 
+"--------------------------------------------------------------------------- 
+set laststatus=2
+"if !exists('g:airline_symbols')
+    "let g:airline_symbols = {}
+"endif
+"let g:airline_left_sep = '»'
+"let g:airline_right_sep = '«'
+"let g:airline_symbols.linenr = '¶'
+"let g:airline_symbols.branch = '& '
+"let g:airline_symbols.paste = 'ρ'
+
+"tabline configure
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#tab_nr_type = 1 " tab number
+let g:airline#extensions#tabline#show_tab_nr = 1
+"let g:airline#extensions#tabline#left_sep = '>'
+"let g:airline#extensions#tabline#left_alt_sep = ''
+"let g:airline#extensions#tabline#right_sep = ''
+"let g:airline#extensions#tabline#right_alt_sep = ''
