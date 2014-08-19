@@ -46,6 +46,8 @@ Install necessary packages
 *`,b`*  Beginning of word backward   
 *`,j`*  Line downward  
 *`,k`*  Line upward  
+*`,l`*  Line forward  
+*`,h`*  Line backward  
 
 * Comment  
 *`<leader>cA`*  Adds comment delimiters to the end of line and goes into insert mode between them.  
@@ -55,6 +57,8 @@ Install necessary packages
 
 
 * Others   
+*`<c-u>`* PageUp  
+*`<c-d>`* PageDown  
 *`<leader><cr>`* Clear search highlighting  
 *`<leader>ss`*  Spell check   
 *`<leader>cd`*  CD to current buffer's path  

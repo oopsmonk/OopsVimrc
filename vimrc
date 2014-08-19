@@ -109,7 +109,7 @@ set tm=500
 "}      							
 
 "Auto reload vimrc
-autocmd bufwritepost .vimrc,vimrc source ~/.vimrc
+"autocmd bufwritepost .vimrc,vimrc source ~/.vimrc
 
 "Restore cursor to file position in previous editing session
 if has("autocmd")
@@ -198,6 +198,8 @@ set fileencodings=ucs-bom,utf-8,big5,gb2312,latin1
 "Moving around long lines. 
 map j gj
 map k gk
+map <c-u> <PageUp>
+map <c-d> <PageDown>
 
 "Disable highlight when <leader><cr> is pressed
 map <silent> <leader><cr> :noh<cr>
@@ -237,6 +239,12 @@ omap ? <Plug>(easymotion-tn)
 map  e <Plug>(easymotion-next)
 map  E <Plug>(easymotion-prev)
 
+map <Leader>l <Plug>(easymotion-lineforward)
+map <Leader>j <Plug>(easymotion-j)
+map <Leader>k <Plug>(easymotion-k)
+map <Leader>h <Plug>(easymotion-linebackward)
+
+let g:EasyMotion_startofline = 0 " keep cursor colum when JK motion
 "--------------------------------------------------------------------------- 
 " Syntastic (syntax checker)
 "--------------------------------------------------------------------------- 
@@ -275,3 +283,8 @@ autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 "--------------------------------------------------------------------------- 
 "Clear marks when quit 
 autocmd BufUnload * call signature#PurgeMarks() 
+
+"--------------------------------------------------------------------------- 
+" NerdTree 
+"--------------------------------------------------------------------------- 
+let NERDTreeIgnore = ['\.pyc$','\.o$','\.so$','\.a$']
