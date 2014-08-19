@@ -294,6 +294,7 @@ let NERDTreeIgnore = ['\.pyc$','\.o$','\.so$','\.a$']
 " Airline 
 "--------------------------------------------------------------------------- 
 set laststatus=2
+let g:airline_detect_whitespace=0 " remove the trailing
 "if !exists('g:airline_symbols')
     "let g:airline_symbols = {}
 "endif
