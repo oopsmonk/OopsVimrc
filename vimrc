@@ -201,6 +201,7 @@ map j gj
 map k gk
 map <c-u> <PageUp>
 map <c-d> <PageDown>
+map <F2> :echo expand('%:p')<cr>
 
 "Disable highlight when <leader><cr> is pressed
 map <silent> <leader><cr> :noh<cr>
@@ -218,8 +219,8 @@ map <leader>cd :cd %:p:h<cr>:pwd<cr>
 
 map <leader>1 :Unite buffer<cr>
 map <leader>2 :Unite file<cr>
-map <F3> :TagbarToggle<cr>
-map <F4> :NERDTreeToggle<cr>
+map <F4> :TagbarToggle<cr>
+map <F3> :NERDTreeToggle<cr>
 if s:dis_ID == 'ubuntu'
     noremap <F9> :exe ':silent !firefox %'<cr>
 endif
