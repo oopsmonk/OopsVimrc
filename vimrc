@@ -222,7 +222,7 @@ map <leader>2 :Unite file<cr>
 map <F4> :TagbarToggle<cr>
 map <F3> :NERDTreeToggle<cr>
 if s:dis_ID == 'ubuntu'
-    noremap <F9> :exe ':silent !firefox %'<cr>
+    noremap <F9> :exe ':silent !firefox %' <cr> :redraw! <cr>
 endif
 
 " Spell check
