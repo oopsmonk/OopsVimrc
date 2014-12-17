@@ -284,7 +284,8 @@ autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 " vim-signature 
 "--------------------------------------------------------------------------- 
 "Clear marks when quit 
-autocmd BufUnload * call signature#PurgeMarks() 
+"autocmd BufUnload * call signature#PurgeMarks() 
+autocmd BufUnload * call signature#mark#Purge('all')
 
 "--------------------------------------------------------------------------- 
 " Nerdtree 
