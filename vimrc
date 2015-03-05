@@ -48,6 +48,7 @@ NeoBundle 'Townk/vim-autoclose'
 NeoBundle 'kshenoy/vim-signature'
 NeoBundle 'zeis/vim-kolor'
 NeoBundle 'bling/vim-airline'
+NeoBundle 'parkr/vim-jekyll'
 
 call neobundle#end()
 
@@ -314,3 +315,24 @@ let g:airline#extensions#tabline#show_tab_nr = 1
 "let g:airline#extensions#tabline#left_alt_sep = ''
 "let g:airline#extensions#tabline#right_sep = ''
 "let g:airline#extensions#tabline#right_alt_sep = ''
+
+"--------------------------------------------------------------------------- 
+" vim-jekyll 
+"--------------------------------------------------------------------------- 
+let g:jekyll_post_dirs = ['_posts']
+let g:jekyll_post_extension = '.md'
+let g:jekyll_post_filetype = 'markdown'
+let g:jekyll_post_template = [
+\ '---',
+\ 'layout: post',
+\ 'title: "JEKYLL_TITLE"',
+\ 'modified: ',
+\ 'categories: TechNotes or Vida',
+\ 'comments: true',
+\ 'excerpt:',
+\ 'tags: []',
+\ 'image:',
+\ '  feature:',
+\ 'date: "JEKYLL_DATE"',
+\ '---',
+\ '']
