@@ -82,6 +82,7 @@ Install necessary packages
 * [Townk/vim-autoclose](https://github.com/Townk/vim-autoclose)
 * [kshenoy/vim-signature](https://github.com/kshenoy/vim-signature)
 * [bling/vim-airline](https://github.com/bling/vim-airline)  
+* [parkr/vim-jekyll](https://github.com/parkr/vim-jekyll)  
 
 ###Color Schemes  
 
