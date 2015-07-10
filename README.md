@@ -55,15 +55,24 @@ Install necessary packages
 *`<leader>cu`*  Uncomments the selected line(s).  
 *`<leader>c$`*  Comments the current line from the cursor to the end of line.  
 
+* Spell Check
+*`<leader>ss`*  Toggle spell check.  
+*`]s` and `[s`*  Move around misspelled word.  
+*`=z`*  Suggestion list.  
+
+* Gitgutter  
+*`:GitGutterToggle`*  Toggle gitgutter.  
+*`:GitGutterLineHighlightsToggle`*  Toggle line hight-lights.  
+*`]c` and `[c`*  Move around git changes.  
 
 * Others   
 *`<c-u>`* PageUp  
 *`<c-d>`* PageDown  
 *`<leader><cr>`* Clear search highlighting  
-*`<leader>ss`*  Spell check   
 *`<leader>cd`*  CD to current buffer's path  
 *`<leader>1`*   Unite buffer  
 *`<leader>2`*   Unite file  
+*`<F2>`*        Display file path  
 *`<F3>`*        TagbarToggle  
 *`<F4>`*        NERDTreeToggle  
 *`<F9>`*        Open file in Firefox (Preview Markdown or HTML files)  
@@ -83,6 +92,8 @@ Install necessary packages
 * [kshenoy/vim-signature](https://github.com/kshenoy/vim-signature)
 * [bling/vim-airline](https://github.com/bling/vim-airline)  
 * [parkr/vim-jekyll](https://github.com/parkr/vim-jekyll)  
+* [airblade/vim-gitgutter](https://github.com/airblade/vim-gitgutter)  
+* [lervag/vimtex](https://github.com/lervag/vimtex)  
 
 ###Color Schemes  
 

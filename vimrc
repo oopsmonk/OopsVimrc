@@ -49,6 +49,12 @@ NeoBundle 'kshenoy/vim-signature'
 NeoBundle 'zeis/vim-kolor'
 NeoBundle 'bling/vim-airline'
 NeoBundle 'parkr/vim-jekyll'
+NeoBundle 'airblade/vim-gitgutter'
+
+if has('clientserver')
+    NeoBundle 'lervag/vimtex'
+endif
+
 
 call neobundle#end()
 
