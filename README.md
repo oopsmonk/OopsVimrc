@@ -55,7 +55,7 @@ Install necessary packages
 *`<leader>cu`*  Uncomments the selected line(s).  
 *`<leader>c$`*  Comments the current line from the cursor to the end of line.  
 
-* Spell Check
+* Spell Check  
 *`<leader>ss`*  Toggle spell check.  
 *`]s` and `[s`*  Move around misspelled word.  
 *`=z`*  Suggestion list.  
