@@ -39,11 +39,7 @@ Install necessary packages
 *`m<space>`*  Delete all marks from the current buffer  
 
 * Easymotion   
-*`?`*  Easymotion search  
-*`e`*  Easymotion next target    
-*`E`*  Easymotion previous target    
-*`,w`*  Beginning of word forward  
-*`,b`*  Beginning of word backward   
+*`s`*  2-character search  
 *`,j`*  Line downward  
 *`,k`*  Line upward  
 *`,l`*  Line forward  
@@ -68,7 +64,6 @@ Install necessary packages
 * Others   
 *`<c-u>`* PageUp  
 *`<c-d>`* PageDown  
-*`<leader><cr>`* Clear search highlighting  
 *`<leader>cd`*  CD to current buffer's path  
 *`<leader>1`*   Unite buffer  
 *`<leader>2`*   Unite file  
