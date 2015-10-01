@@ -40,10 +40,10 @@ Install necessary packages
 
 * Easymotion   
 *`s`*  2-character search  
-*`,j`*  Line downward  
-*`,k`*  Line upward  
-*`,l`*  Line forward  
-*`,h`*  Line backward  
+*`<leader>j`*  Line downward  
+*`<leader>k`*  Line upward  
+*`<leader>l`*  Line forward  
+*`<leader>h`*  Line backward  
 
 * Comment  
 *`<leader>cA`*  Adds comment delimiters to the end of line and goes into insert mode between them.  
@@ -70,7 +70,7 @@ Install necessary packages
 *`<F2>`*        Display file path  
 *`<F3>`*        TagbarToggle  
 *`<F4>`*        NERDTreeToggle  
-*`<F5>`*        UndotreeToggle
+*`<F5>`*        UndotreeToggle  
 *`<F9>`*        Open file in Firefox (Preview Markdown or HTML files)  
 
 ###Plugins
