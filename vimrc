@@ -50,6 +50,7 @@ NeoBundle 'zeis/vim-kolor'
 NeoBundle 'bling/vim-airline'
 NeoBundle 'parkr/vim-jekyll'
 NeoBundle 'airblade/vim-gitgutter'
+NeoBundle 'mbbill/undotree'
 
 if has('clientserver')
     NeoBundle 'lervag/vimtex'
@@ -228,6 +229,7 @@ map <leader>1 :Unite buffer<cr>
 map <leader>2 :Unite file<cr>
 map <F4> :TagbarToggle<cr>
 map <F3> :NERDTreeToggle<cr>
+map <F5> :UndotreeToggle<cr>
 if s:dis_ID == 'ubuntu'
     noremap <F9> :exe ':silent !firefox %' <cr> :redraw! <cr>
 endif
@@ -493,3 +495,11 @@ let g:jekyll_post_template = [
 \ 'date: "JEKYLL_DATE"',
 \ '---',
 \ '']
+
+"--------------------------------------------------------------------------- 
+" undotree 
+"--------------------------------------------------------------------------- 
+if has("persistent_undo")
+    set undodir='~/.undodir/'
+    set undofile
+endif

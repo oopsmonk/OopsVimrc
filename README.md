@@ -70,6 +70,7 @@ Install necessary packages
 *`<F2>`*        Display file path  
 *`<F3>`*        TagbarToggle  
 *`<F4>`*        NERDTreeToggle  
+*`<F5>`*        UndotreeToggle
 *`<F9>`*        Open file in Firefox (Preview Markdown or HTML files)  
 
 ###Plugins
@@ -89,6 +90,7 @@ Install necessary packages
 * [parkr/vim-jekyll](https://github.com/parkr/vim-jekyll)  
 * [airblade/vim-gitgutter](https://github.com/airblade/vim-gitgutter)  
 * [lervag/vimtex](https://github.com/lervag/vimtex)  
+* [mbbill/undotree](https://github.com/mbbill/undotree)  
 
 ###Color Schemes  
 
