@@ -51,6 +51,8 @@ NeoBundle 'bling/vim-airline'
 NeoBundle 'parkr/vim-jekyll'
 NeoBundle 'airblade/vim-gitgutter'
 NeoBundle 'mbbill/undotree'
+NeoBundle 'xolox/vim-misc'
+NeoBundle 'xolox/vim-notes'
 
 if has('clientserver')
     NeoBundle 'lervag/vimtex'
@@ -204,6 +206,7 @@ set fileencodings=ucs-bom,utf-8,big5,gb2312,latin1
 "--------------------------------------------------------------------------- 
 " Key Mapping 
 "--------------------------------------------------------------------------- 
+let mapleader = ","
 "Moving around long lines. 
 map j gj
 map k gk
@@ -266,6 +269,8 @@ let g:EasyMotion_startofline = 0 " keep cursor colum when JK motion
 " Syntastic (syntax checker)
 "--------------------------------------------------------------------------- 
 let g:syntastic_python_checkers=['pyflakes']
+let g:syntastic_check_on_open = 1
+let g:EclimFileTypeValidate = 0
 
 "--------------------------------------------------------------------------- 
 " neocomplete 
@@ -358,6 +363,8 @@ let g:neocomplcache_enable_smart_case = 1
 " Set minimum syntax keyword length.
 let g:neocomplcache_min_syntax_length = 3
 let g:neocomplcache_lock_buffer_name_pattern = '\*ku\*'
+" force use neocomplete 
+let g:neocomplcache_force_overwrite_completefunc = 1 
 
 " Enable heavy features.
 " Use camel case completion.
@@ -503,3 +510,10 @@ if has("persistent_undo")
     set undodir='~/.undodir/'
     set undofile
 endif
+
+"--------------------------------------------------------------------------- 
+" vim-notes 
+"--------------------------------------------------------------------------- 
+let g:notes_directories = ['~/.VimNotes']
+let g:notes_conceal_url = 0
+let g:notes_suffix = '.txt'
