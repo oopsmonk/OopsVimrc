@@ -182,7 +182,10 @@ try
 catch /^Vim\%((\a\+)\)\=:E185/
     "Notthing
 endtry
+" Background transparency 
+hi Normal ctermbg=none
 
+set cursorline
 "set laststatus=2
 "set statusline=%4*%<\ %1*[%F]
 "set statusline+=%4*\ %5*[%{&encoding}, " encoding
@@ -239,6 +242,9 @@ endif
 
 " Spell check
 map <leader>ss :setlocal spell!<cr>
+" timestamp 
+inoremap <F5> <C-R>=strftime("@%Y-%m-%d %H:%M")<CR>
+
 "--------------------------------------------------------------------------- 
 " EasyMotion Plugin
 "--------------------------------------------------------------------------- 
@@ -268,9 +274,13 @@ let g:EasyMotion_startofline = 0 " keep cursor colum when JK motion
 "--------------------------------------------------------------------------- 
 " Syntastic (syntax checker)
 "--------------------------------------------------------------------------- 
+"set statusline+=%#warningmsg#
+"set statusline+=%{SyntasticStatuslineFlag()}
+"set statusline+=%*
 let g:syntastic_python_checkers=['pyflakes']
 let g:syntastic_check_on_open = 1
 let g:EclimFileTypeValidate = 0
+let g:syntastic_check_on_wq = 0
 
 "--------------------------------------------------------------------------- 
 " neocomplete 
@@ -490,7 +500,7 @@ let g:jekyll_post_extension = '.md'
 let g:jekyll_post_filetype = 'markdown'
 let g:jekyll_post_template = [
 \ '---',
-\ 'layout: post',
+\ 'layout: single',
 \ 'title: "JEKYLL_TITLE"',
 \ 'modified: ',
 \ 'categories: TechNotes or Vida',
