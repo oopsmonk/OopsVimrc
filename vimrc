@@ -52,7 +52,8 @@ NeoBundle 'parkr/vim-jekyll'
 NeoBundle 'airblade/vim-gitgutter'
 NeoBundle 'mbbill/undotree'
 NeoBundle 'xolox/vim-misc'
-NeoBundle 'xolox/vim-notes'
+"NeoBundle 'xolox/vim-notes'
+NeoBundle 'vimwiki/vimwiki'
 
 if has('clientserver')
     NeoBundle 'lervag/vimtex'
@@ -524,6 +525,12 @@ endif
 "--------------------------------------------------------------------------- 
 " vim-notes 
 "--------------------------------------------------------------------------- 
-let g:notes_directories = ['~/.VimNotes']
-let g:notes_conceal_url = 0
-let g:notes_suffix = '.txt'
+"let g:notes_directories = ['~/.VimNotes']
+"let g:notes_conceal_url = 0
+"let g:notes_suffix = '.txt'
+
+"--------------------------------------------------------------------------- 
+" vimwiki  
+"--------------------------------------------------------------------------- 
+let g:vimwiki_list = [{'path': '~/vimwiki/', 'syntax': 'markdown', 'ext': '.md'}]
+
