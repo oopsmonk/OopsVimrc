@@ -26,7 +26,7 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 " Refer to |:NeoBundle-examples|.
 " Note: You don't set neobundle setting in .gvimrc!
 
-if s:dis_ID == 'ubuntu'
+if s:dis_ID == 'ubuntu' || s:dis_ID == 'raspbian'
     if has('lua') && (v:version > 703 || (v:version == 703 && has('patch885')))
         NeoBundle 'Shougo/neocomplete.vim'
     else
