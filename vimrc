@@ -507,11 +507,20 @@ let g:jekyll_post_template = [
 \ 'categories: TechNotes or Vida',
 \ 'comments: true',
 \ 'excerpt:',
-\ 'tags: []',
+\ 'tags: [滴水穿石]',
 \ 'image:',
 \ '  feature:',
 \ 'date: "JEKYLL_DATE"',
 \ '---',
+\ '',
+\ '以前球隊在回防時, 教練總會說"快跑! 別回頭, 到定點再休息".  ',
+\ '關於人生, 喘息點在哪兒? 我想就在滴水穿石之間!  ',
+\ '',
+\ '# Week? (dd/MM)  ',
+\ '## 網路文章  ',
+\ '## 網路資源  ',
+\ '## 讀書心得  ',
+\ '## 論文學習  ',
 \ '']
 
 "--------------------------------------------------------------------------- 
@@ -532,5 +541,7 @@ endif
 "--------------------------------------------------------------------------- 
 " vimwiki  
 "--------------------------------------------------------------------------- 
-let g:vimwiki_list = [{'path': '~/vimwiki/', 'syntax': 'markdown', 'ext': '.md'}]
+let g:vimwiki_list = [{'path': '~/vimwiki/', 'syntax': 'markdown', 'ext': '.mdwiki'}]
 
+" Arduino project file
+autocmd BufRead,BufNewFile *.ino set filetype=c
