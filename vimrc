@@ -136,23 +136,25 @@ endif
 "--------------------------------------------------------------------------- 
 " Markdown extention
 autocmd BufRead,BufNewFile *.md set filetype=markdown
-"Auto Pandoc switch on/off
-function! OnPandoc()
-    let b:auto_doc
+"Pandoc switch
+function! TogglePandoc()
+    if exists("b:auto_doc")
+        unlet b:auto_doc
+        echo "Disable Pandoc"
+    else
+        let b:auto_doc="true"
+        echo "Enable Pandoc"
+    endif
 endfunction
 
-function! OffPandoc()
-    unlet b:auto_doc
-endfunction
-
-" Auto Pandoc function
-function! AutoPandoc()
+" Markdown to HTML convertion
+function! MD2HTML()
     "check if enable this function
     if exists("b:auto_doc")
         "check if pandoc exist
         if filereadable("/usr/bin/pandoc")
-            " get current directory path and append CSS file
-            let l:csspath=expand("%:p:h")."/pandoc-markdownpad-github.css"
+            " CSS file location
+            let l:csspath=fnamemodify(expand("$MYVIMRC"), ":p:h")."/.vim/pandoc-markdownpad-github.css"
             let l:outPut=expand("%:p:h")."/out.html"
             if filereadable(l:csspath)
                 "remove old output
@@ -163,16 +165,16 @@ function! AutoPandoc()
 
                 " run command
                 let l:runCmd="!pandoc -H ".l:csspath." -s ".expand("%:p")." -o ".l:outPut
-                echo "Auto generated HTML at ".l:outPut
+                echo "HTML is generated at path: ".l:outPut
                 silent execute l:runCmd
             endif
         endif
     endif
 endfunction
 
-"Audo gen html for markdown
-let b:auto_doc="ture"
-autocmd BufWritePost *.markdown,*md call AutoPandoc()
+"Auto convert a markdown file to html.
+" call TogglePandoc() to enable/disable
+autocmd BufWritePost *.markdown,*md call MD2HTML()
 
 "--------------------------------------------------------------------------- 
 " Color scheme  
