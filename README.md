@@ -1,7 +1,7 @@
 OopsVimrc
 =========
 
-###Request:  
+## Request:  
 
 Install ACK2 for ack.vim  
 `curl http://beyondgrep.com/ack-2.12-single-file > ~/bin/ack && chmod 0755 !#:3`
@@ -15,12 +15,12 @@ Install necessary packages
 * [Ack – for 工程師用的 grep](http://brooky.cc/2012/09/28/ack-for-%E5%B7%A5%E7%A8%8B%E5%B8%AB%E7%94%A8%E7%9A%84-grep/)   
 * [*exuberant-ctags*](http://ctags.sourceforge.net/): support Tagbar.  
 
-###Install:  
+## Install:  
 
 `curl https://raw.githubusercontent.com/oopsmonk/OopsVimrc/master/auto-install.sh | sh`
 
 
-###Key Mappings  
+## Key Mappings  
 * Tab   
 *`<leader>tn`*  tabnew  
 *`<leader>to`*  tabonly   
@@ -73,7 +73,7 @@ Install necessary packages
 *`<F5>`*        UndotreeToggle  
 *`<F9>`*        Open file in Firefox (Preview Markdown or HTML files)  
 
-###Plugins
+## Plugins
 
 * [Shougo/unite.vim](https://github.com/Shougo/unite.vim)
 * [Shougo/neocomplcache](https://github.com/Shougo/neocomplcache)
@@ -92,6 +92,6 @@ Install necessary packages
 * [lervag/vimtex](https://github.com/lervag/vimtex)  
 * [mbbill/undotree](https://github.com/mbbill/undotree)  
 
-###Color Schemes  
+## Color Schemes  
 
 * [zeis/vim-kolor](https://github.com/zeis/vim-kolor)
