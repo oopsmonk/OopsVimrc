@@ -7,7 +7,7 @@
 
 set nocompatible	" not compatible with the old-fashion vi mode
 set bs=2		" allow backspacing over everything in insert mode
-set history=150		" keep 50 lines of command line history
+set history=1000	" keep 1000 lines of command line history
 set ruler		" show the cursor position all the time
 set autoread		" auto read when file is changed from outside
 
@@ -43,16 +43,14 @@ set novisualbell
 set t_vb=
 set tm=500
 
-" TAB setting{
-   set expandtab        "replace <TAB> with spaces
-   set softtabstop=4
-   set shiftwidth=4
-
-   autocmd FileType Makefile set noexpandtab
-"}
+" TAB setting
+set expandtab        "replace <TAB> with spaces
+set softtabstop=2
+set shiftwidth=2
+autocmd FileType Makefile set noexpandtab
 
 "Auto reload vimrc
-"autocmd bufwritepost .vimrc,vimrc source ~/.vimrc
+autocmd bufwritepost .vimrc,vimrc source ~/.vimrc
 
 "Restore cursor to file position in previous editing session
 if has("autocmd")
@@ -61,6 +59,18 @@ if has("autocmd")
     \   exe "normal g'\"" |
     \ endif
 endif
+
+" tmux color issue
+" https://github.com/tmux/tmux/issues/699#issuecomment-361469310
+set background=dark
+set t_Co=256
+
+if &shell =~# 'fish$' && (v:version < 704 || v:version == 704 && !has('patch276'))
+  set shell=/usr/bin/env\ bash
+endif
+
+" Arduino project file
+autocmd BufRead,BufNewFile *.ino set filetype=c
 
 "---------------------------------------------------------------------------
 " ENCODING SETTINGS
@@ -76,16 +86,37 @@ set fileencodings=ucs-bom,utf-8,big5,gb2312,latin1
 " Plugins will be downloaded under the specified directory.
 call plug#begin('~/.vim/plugged')
 
-Plug 'scrooloose/nerdtree'
+Plug 'preservim/nerdtree'
+Plug 'preservim/tagbar'
+Plug 'preservim/nerdcommenter'
 Plug 'bling/vim-airline'
+Plug 'vim-syntastic/syntastic'
+Plug 'airblade/vim-gitgutter'
+Plug 'tpope/vim-surround'
+Plug 'ycm-core/YouCompleteMe'
+Plug 'joshdick/onedark.vim'
 
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()
 
 "---------------------------------------------------------------------------
+" Key Mapping
+"---------------------------------------------------------------------------
+
+" Spell check
+map <leader>ss :setlocal spell!<cr>
+
+"---------------------------------------------------------------------------
+" color scheme
+"---------------------------------------------------------------------------
+colorscheme onedark
+let g:airline_theme='onedark'
+
+"---------------------------------------------------------------------------
 " Nerdtree
 "---------------------------------------------------------------------------
 let NERDTreeIgnore = ['\.pyc$','\.o$','\.so$','\.a$']
+map <F3> :NERDTreeToggle<cr>
 
 "---------------------------------------------------------------------------
 " Airline
@@ -110,3 +141,27 @@ let g:airline#extensions#tabline#show_tab_nr = 1
 "let g:airline#extensions#tabline#left_alt_sep = ''
 "let g:airline#extensions#tabline#right_sep = ''
 "let g:airline#extensions#tabline#right_alt_sep = ''
+
+"---------------------------------------------------------------------------
+" Syntastic (syntax checker)
+"---------------------------------------------------------------------------
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
+"---------------------------------------------------------------------------
+" vim-gitgutter
+"---------------------------------------------------------------------------
+set updatetime=1000
+nmap ]c <Plug>(GitGutterNextHunk)
+nmap [c <Plug>(GitGutterPrevHunk)
+
+"---------------------------------------------------------------------------
+" tagbar
+"---------------------------------------------------------------------------
+map <F4> :TagbarToggle<cr>
